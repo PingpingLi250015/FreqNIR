@@ -1,7 +1,4 @@
-# FreqNIR
-
-Official PyTorch implementation of **FreqNIR: Frequency Separated Near-infrared Prior
-Extraction for Cross-modality Image Denoising**.
+# FreqNIR: Frequency Separated Near-infrared Prior Extraction for Cross-modality Image Denoising
 
 <center>
   <img src="docs/Architecture.png" width="90%" alt="FreqNIR Architecture" />
