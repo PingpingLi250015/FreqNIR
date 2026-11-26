@@ -1,0 +1,33 @@
+seed: 1234
+
+model:
+  base_channels: 30
+  block_depths: [2, 2, 2, 2, 2, 2]
+  bias_window: 16
+  attention_chunk_size: 512
+  ffn_expansion: 2.0
+
+data:
+  train_dir: data/DVD/train
+  val_dir: data/DVD/test/sigma_4
+  crop_size: 128
+  workers: 8
+  evaluation_tile_size: 256
+  tile_overlap: 32
+
+training:
+  batch_size: 8
+  learning_rate: 0.0002
+  minimum_learning_rate: 0.000001
+  amp: true
+  nfdp:
+    epochs: 5
+    output_dir: experiments/nfdp
+  full:
+    epochs: 160
+    output_dir: experiments/freqnir
+    nfdp_checkpoint: experiments/nfdp/checkpoints/best.pt
+
+loss:
+  lambda_fourier: 0.001
+  lambda_wavelet: 0.005
